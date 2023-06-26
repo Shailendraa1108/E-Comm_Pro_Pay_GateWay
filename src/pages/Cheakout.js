@@ -7,22 +7,18 @@ const address = [
     pincode: 208025,
     city: "kanpur",
     mobile: 6392470094,
-    street:"13th may",
-
-    
-
+    street: "13th may",
   },
   {
     name: "Leslie Alexander",
     pincode: 208025,
     city: "kdelhi",
-    street:"13th may",
+    street: "13th may",
     mobile: 6392470094,
-   
   },
 ];
 
-const products = [
+const oldproducts = [
   {
     id: 1,
     name: "Throwback Hip Bag",
@@ -49,6 +45,8 @@ const products = [
   },
   // More products...
 ];
+
+
 function Cheakout() {
   const [open, setOpen] = useState(true);
   return (
@@ -223,15 +221,17 @@ function Cheakout() {
                   <p className="mt-1 text-sm leading-6 text-gray-600">
                     Choose from exitting address
                   </p>
-                  <ul role="list" className="divide-y divide-gray-100 border-2 px-4">
+                  <ul
+                    role="list"
+                    className="divide-y divide-gray-100 border-2 px-4"
+                  >
                     {address.map((address) => (
-                    
                       <li
                         key={address.email}
                         className="flex justify-between gap-x-6 py-5 cursor-pointer "
                       >
                         <div className="flex gap-x-4">
-                        <input
+                          <input
                             id="radio"
                             name="radio"
                             type="radio"
@@ -256,26 +256,24 @@ function Cheakout() {
                           <p className="text-sm leading-6 text-gray-900">
                             {address.city}
                           </p>
-                         
                         </div>
                       </li>
-                      
                     ))}
                   </ul>
                   <div className="mt-6 flex items-center justify-end gap-x-6">
-                <button
-                  type="button"
-                  className="text-sm font-semibold leading-6 text-gray-900"
-                >
-                 Reset
-                </button>
-                <button
-                  type="submit"
-                  className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                 Add Address
-                </button>
-              </div>
+                    <button
+                      type="button"
+                      className="text-sm font-semibold leading-6 text-gray-900"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      type="submit"
+                      className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >
+                      Add Address
+                    </button>
+                  </div>
                   <div className="mt-10 space-y-10">
                     <fieldset>
                       <legend className="text-sm font-semibold leading-6 text-gray-900 text-left">
@@ -318,8 +316,6 @@ function Cheakout() {
                   </div>
                 </div>
               </div>
-
-             
             </form>
           </div>
           <div className="lg:col-span-2 ">
@@ -330,56 +326,56 @@ function Cheakout() {
               <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
-                    {products.map((product) => (
-                            <Link to="/product-details">
-                      <li key={product.id} className="flex py-6">
-                        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                          <img
-                            src={product.imageSrc}
-                            alt={product.imageAlt}
-                            className="h-full w-full object-cover object-center"
-                          />
-                        </div>
-
-                        <div className="ml-4 flex flex-1 flex-col">
-                          <div>
-                            <div className="flex justify-between text-base font-medium text-gray-900">
-                              <h3>
-                                <a href={product.href}>{product.name}</a>
-                              </h3>
-                              <p className="ml-4">{product.price}</p>
-                            </div>
-                            <p className="mt-1 text-sm text-gray-500">
-                              {product.color}
-                            </p>
+                    {oldproducts.map((product) => (
+                      <Link to="/product-details">
+                        <li key={product.id} className="flex py-6">
+                          <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                            <img
+                              src={product.imageSrc}
+                              alt={product.imageAlt}
+                              className="h-full w-full object-cover object-center"
+                            />
                           </div>
-                          <div className="flex flex-1 items-end justify-between text-sm">
-                            <div className="text-gray-500">
-                              <label
-                                htmlFor="quantity"
-                                className="inline mr-5 text-sm font-medium leading-5 text-gray-900"
-                              >
-                                Qty
-                              </label>
-                              <select>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                              </select>
+
+                          <div className="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div className="flex justify-between text-base font-medium text-gray-900">
+                                <h3>
+                                  <a href={product.href}>{product.name}</a>
+                                </h3>
+                                <p className="ml-4">{product.price}</p>
+                              </div>
+                              <p className="mt-1 text-sm text-gray-500">
+                                {product.color}
+                              </p>
                             </div>
+                            <div className="flex flex-1 items-end justify-between text-sm">
+                              <div className="text-gray-500">
+                                <label
+                                  htmlFor="quantity"
+                                  className="inline mr-5 text-sm font-medium leading-5 text-gray-900"
+                                >
+                                  Qty
+                                </label>
+                                <select>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
 
-                            <p className="text-gray-500">Qty</p>
+                              <p className="text-gray-500">Qty</p>
 
-                            <div className="flex">
-                              <button
-                                type="button"
-                                className="font-medium text-indigo-600 hover:text-indigo-500"
-                              >
-                                Remove
-                              </button>
+                              <div className="flex">
+                                <button
+                                  type="button"
+                                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                                >
+                                  Remove
+                                </button>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </li>
+                        </li>
                       </Link>
                     ))}
                   </ul>
@@ -399,7 +395,7 @@ function Cheakout() {
                     to="/payment"
                     className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
-                   Pay and Order
+                    Pay and Order
                   </Link>
                 </div>
                 <div className="mt-6 flex justify-center text-center text-sm text-gray-500">

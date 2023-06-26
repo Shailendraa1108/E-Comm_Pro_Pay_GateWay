@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { ProductList } from './features/product-list/ProductList';
 import './App.css';
 
 import Home from './pages/Home';
@@ -19,10 +18,11 @@ import Cheakout from './pages/Cheakout';
 import DetailsPageProduct from './pages/DetailsPageProduct';
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (<Home></Home> ),
+    element: <Home></Home> ,
   },
   {
     path: "/login",
