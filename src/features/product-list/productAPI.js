@@ -7,11 +7,29 @@ export function fetchAllProducts() {
     resolve({ data });
   });
 }
-export function fetchproductsByFilter(filter) {
-//filter={"categories":"samrtPhone"}
+export function fetchproductsByFilter(filter,sort,pagination) {
+//filter={"categories":"     "}
+   // filter:laptops,smartphone,and category
+  //Todo: on the server we will have tosupport multi values
+  // sort : _sort:price _order:order.option
+  //pagination pr kaam krne ke liye sbse phle page dekhe ki kitne pagehai api aur waha se ?_pages
+  //&_limit=10 krke check kr lo to wo aip apko 1 se lekar 10 result degi...
+  //aur object ke form me api ko bhejna padega const pagination= {page=1, _linit=10} kuch iss trh se..
 let quearyString = " ";
   for(let key in filter){
-    quearyString += `${key}=${filter[key]}&`
+    const categories=filter[key]
+    if(categories.length){
+      const lastCaterioesvalue=categories[categories.length-1]
+      quearyString += `${key}=${lastCaterioesvalue}&`
+    }
+ 
+  }
+  for(let key in sort){
+    console.log(sort[key])
+    quearyString += `${key}=${sort[key]}&`//sort,order = rating,dsc and asc
+  }
+  for(let key in pagination){
+    quearyString += `${key}=${pagination[key]}&`
   }
 
   return new Promise(async (resolve) => {
